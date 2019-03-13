@@ -1,0 +1,75 @@
+﻿@model SusiSu.Models.Su
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="form-horizontal pt-140">
+
+    <h3>Silmek istediğinize Eminmisiniz?</h3>
+    <div>
+        <h4>Su</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StokMiktari)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StokMiktari)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tur)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tur)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Boy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Boy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UretimTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UretimTarihi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SKullanmaTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SKullanmaTarihi)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        }
+    </div>
+    </div>

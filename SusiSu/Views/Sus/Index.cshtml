@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SusiSu.Models.Su>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="form-horizontal pt-140">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StokMiktari)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UretimTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SKullanmaTarihi)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StokMiktari)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Boy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UretimTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SKullanmaTarihi)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.SuID }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.SuID }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.SuID })
+                </td>
+            </tr>
+        }
+
+    </table></div>

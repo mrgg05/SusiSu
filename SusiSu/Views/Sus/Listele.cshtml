@@ -1,0 +1,256 @@
+﻿
+@using SusiSu.Helpers
+@model IEnumerable<SusiSu.Models.ListeleViewModel>
+
+
+@{
+    ViewBag.Title = "Listele";
+}
+
+@*<h2>Listele</h2>*@
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Boy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StokMiktari)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Boy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StokMiktari)
+                </td>
+
+            </tr>
+        }
+
+    </table>*@
+
+<!-- bottole deliver -->
+<section class="pt-120 pb-90 top-shape">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <!-- single bottle deliver wrap -->
+                <div class="single-bottle-inner text-center">
+                    <div class="bottle-image">
+                        <img src="/Content/assets/img/icons/water-gallon.svg" alt="" class="svg">
+                    </div>
+                    <div class="single-bottle-text">
+
+                        <h4>@SusiSu.Enums.Enums.Boy.buyuk.GetEnumDisplayName()</h4>
+                     
+                        @foreach (var item in Model.Where(x => x.Boy == SusiSu.Enums.Enums.Boy.buyuk))
+                        {
+
+
+                            if (item.Tur == SusiSu.Enums.Enums.Tur.Cam)
+                            {
+                                <h5>Cam Stoktaki Miktar</h5>
+                                <p>
+
+
+                                    @Html.DisplayFor(modelItem => item.StokMiktari)
+                                </p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+                            else
+                            {
+                                <h5>Plastik Stoktaki Miktar</h5>
+                                <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+                        
+
+                        }
+
+
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#UyeOl" value="">
+
+                            Siparis Ver
+                        </button>
+                    </div>
+                </div><!-- /.End of single bottle deliver wrap -->
+            </div><!-- /.col-->
+            <div class="col-md-6 col-lg-4">
+                <!-- single bottle deliver wrap -->
+                <div class="single-bottle-inner text-center">
+                    <div class="bottle-image">
+                        <img src="/Content/assets/img/icons/big-bottle-of-water.svg" alt="" class="svg">
+                    </div>
+                    <div class="single-bottle-text">
+                        <h4>@SusiSu.Enums.Enums.Boy.Damacana.GetEnumDisplayName()</h4>
+                        @foreach (var item in Model.Where(x => x.Boy == SusiSu.Enums.Enums.Boy.Damacana))
+                        {
+                            if (item.Tur == SusiSu.Enums.Enums.Tur.Cam)
+                            {
+                                <h5>Cam Stoktaki Miktar</h5>
+                                <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+                            else
+                            {
+                                <h5>Plastik Stoktaki Miktar</h5>
+                                <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+
+                        }
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#UyeOl">
+                            Siparis Ver
+                        </button>
+                    </div>
+                </div><!--/. End of single bottle deliver wrap -->
+            </div><!-- /.col-->
+            <div class="col-md-6 col-lg-4">
+                <!-- single bottle deliver wrap -->
+                <div class="single-bottle-inner text-center">
+                    <div class="bottle-image">
+                        <img src="/Content/assets/img/icons/water-bottle.svg" alt="" class="svg">
+                    </div>
+                    <div class="single-bottle-text">
+                        <h4>@SusiSu.Enums.Enums.Boy.kucuk.GetEnumDisplayName()</h4>
+
+                        @foreach (var item in Model.Where(x => x.Boy == SusiSu.Enums.Enums.Boy.kucuk))
+                        {
+                          
+
+        if (item.Tur == SusiSu.Enums.Enums.Tur.Cam)
+{
+                    <h5>Cam Stoktaki Miktar</h5>
+                    <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                    <h5>Birim Fiyat</h5>
+                    <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                }
+                        else
+                        {
+                        <h5>Plastik Stoktaki Miktar</h5>
+                        <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                        <h5>Birim Fiyat</h5>
+                        <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                        }
+
+
+                        }
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#UyeOl">
+                            Siparis Ver
+                        </button>
+                    </div>
+                </div><!-- End of single bottle deliver wrap -->
+            </div><!-- /.col-->
+            @*<div class="col-md-6 col-lg-4">
+                    <!-- single bottle deliver wrap -->
+                    <div class="single-bottle-inner text-center">
+                        <div class="bottle-image">
+                            <img src="/Content/assets/img/icons/water-bottle(2).svg" alt="" class="svg">
+                        </div>
+                        <div class="single-bottle-text">
+                            <h4>Water Bottles Set</h4>
+                            <p>Sed quia magni eos qui lorem ratione volup tatem.</p>
+                            <a href="service-details.html"><i class="fa fa-arrow-circle-o-right"></i>Siparis Ver</a>
+                        </div>
+                    </div><!-- /.End of single bottle deliver wrap -->
+                </div><!-- /.col-->*@
+            @*<div class="col-md-6 col-lg-4">
+                    <!-- single bottle deliver wrap -->
+                    <div class="single-bottle-inner text-center">
+                        <div class="bottle-image">
+                            <img src="/Content/assets/img/icons/water-bottle(1).svg" alt="" class="svg">
+                        </div>
+                        <div class="single-bottle-text">
+                            <h4>2 Litre Gallon</h4>
+                            <p>Sed quia magni eos qui lorem ratione volup tatem.</p>
+                            <a href="service-details.html"><i class="fa fa-arrow-circle-o-right"></i>Siparis Ver</a>
+                        </div>
+                    </div><!-- /.End of single bottle deliver wrap -->
+                </div><!-- /.col-->*@
+            <div class="col-md-6 col-lg-4">
+                <!-- single bottle deliver wrap -->
+                <div class="single-bottle-inner text-center">
+                    <div class="bottle-image">
+                        <img src="/Content/assets/img/icons/big-bottle-of-water-with-handle.svg" alt="" class="svg">
+                    </div>
+                    <div class="single-bottle-text">
+                        <h4>@SusiSu.Enums.Enums.Boy.orta.GetEnumDisplayName()</h4>
+                        @foreach (var item in Model.Where(x => x.Boy == SusiSu.Enums.Enums.Boy.orta))
+                        {
+                     
+                            if (item.Tur == SusiSu.Enums.Enums.Tur.Cam)
+                            {
+                                <h5>Cam Stoktaki Miktar</h5>
+                                <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+                            else
+                            {
+                                <h5>Plastik Stoktaki Miktar </h5>
+                                <p> @Html.DisplayFor(modelItem => item.StokMiktari)</p>
+                                <h5>Birim Fiyat</h5>
+                                <p> @Html.DisplayFor(modelItem => item.Fiyat)</p>
+                            }
+
+                        }
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#UyeOl">
+                            Siparis Ver
+                        </button>
+                    </div>
+                </div><!-- /.End of single bottle deliver wrap -->
+            </div><!-- /.col-->
+        </div><!-- /.row-->
+    </div><!-- /.container-->
+</section><!-- /.End of bottole deliver -->
+
+<div class="modal fade" id="UyeOl" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                @*<h4 class="modal-title" id="myModalLabel">Üye Ol</h4>*@
+            </div>
+            <form method="post" action="/Siparis/SiparisOlustur">
+                <div class="modal-body">
+
+                    @Html.Action("Partial", "Home")
+
+                    @*<div class="form-group">
+            <label>
+                Tur
+                <input type="text" name="Tur" class="form-control" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Kullanıcı şifreniz</label>
+            <input type="password" name="sifre" class="form-control" />
+        </div>*@
+                </div>
+                @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Üye Ol</button>
+                </div>*@
+            </form>
+        </div>
+    </div>
+</div>
